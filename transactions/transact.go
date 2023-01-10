@@ -26,7 +26,7 @@ func dial(port string) (net.Conn, error) {
 	if err != nil {
 		return nil, err
 	}
-	_, err = connection.Write([]byte("[TRANSACTION]0x0066,0x0000,50"))
+	_, err = connection.Write([]byte("[TRANSACTION]0x0000,0x0066,50"))
 	buffer := make([]byte, 1024)
 	messageLength, err := connection.Read(buffer)
 	if err != nil {

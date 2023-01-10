@@ -76,12 +76,13 @@ func processClient(connection net.Conn, port string, ports []string) {
 	}
 	// we get the value
 	received := string(buffer[:messageLength])
-	fmt.Println("Received: ", received)
+	// fmt.Println("Received: ", received[:13])
+	// fmt.Println("HERHEHRHERHERHEHHERHEH")
 	if received[:11] == "[BROADCAST]" {
 		appendPort(received[11:], ports)
 		// add functionality here that broadcasts the new online node to other nodes?
 	} else if received[:13] == "[TRANSACTION]" {
-		processTransaction(connection, received[13:])
+		processTransaction(connection, received)
 	}
 	connection.Close()
 }
@@ -96,6 +97,8 @@ func transactionResponse(connection net.Conn, message string) {
 
 func processTransaction(connection net.Conn, received string) {
 	transactionResult, toAddr, fromAddr, fromBalance, toBalance := transactionValidation(received[13:])
+
+	fmt.Println(transactionResult)
 	switch transactionResult {
 	case "OK":
 		updateBalance(fromAddr, strconv.Itoa(fromBalance))

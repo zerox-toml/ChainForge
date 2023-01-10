@@ -24,7 +24,7 @@ func updateBalance(updateAddr string, balance string) {
 		balances = append(balances, fileScanner.Text())
 	}
 
-	if err := os.Truncate("genesisblock.txt", 0); err != nil {
+	if err := os.Truncate("blocks/genesisblock.txt", 0); err != nil {
 		log.Printf("Failed to truncate: %v", err)
 	}
 
@@ -79,6 +79,7 @@ func getBalance(fromAddr string) int {
 }
 
 func transactionValidation(received string) (string, string, string, int, int) {
+	fmt.Println("ADDR: ", received)
 	fromAddr, rest, _ := strings.Cut(received, ",")
 	toAddr, strAmount, _ := strings.Cut(rest, ",")
 	amount, _ := strconv.Atoi(strAmount)
