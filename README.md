@@ -8,3 +8,4 @@
 * Build a proper communication system between nodes like Gossip protocol to prevent flooding
 * Stress test the system and find edge cases that might crash the system.
 * Introduce a database to hold the list of transactions (Currently using a simple text file)
+* Create a pretty user interface to track actions in the system
