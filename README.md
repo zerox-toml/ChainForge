@@ -15,16 +15,17 @@ This project is a self-built blockchain implementation designed to deepen unders
 
 1. **Clone the repository:**
    ```bash
-   git clone <repo-url>
-   cd blockchain_project
+   git clone https://github.com/zerox-toml/ChainForge.git
+   cd ChainForge
    ```
 2. **Install dependencies:**
-   Ensure you have Python 3.x installed. Install any required packages (see requirements.txt if available).
-3. **Run the project:**
+   Make sure you have Go installed (version 1.18 or higher recommended).
+   You can download it from [golang.org](https://golang.org/dl/).
+3. **Build and run the project:**
    ```bash
-   python main.py
+   go run main.go
    ```
-   (Replace `main.py` with the actual entry point if different.)
+   (If your entry point is a different file, replace `main.go` with the correct filename.)
 
 ## Roadmap
 
